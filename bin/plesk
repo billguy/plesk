@@ -13,7 +13,7 @@ $: << File.expand_path(File.dirname(File.realpath(__FILE__)) + '/../lib')
 require 'plesk'
 require 'gli'
 
-include GLI
+include GLI::App
 
 program_desc 'Use ./plesk to get your api key from your plesk instance.'
 
@@ -60,5 +60,5 @@ on_error do |exception|
   true
 end
 
-exit GLI.run(ARGV)
+exit run(ARGV)
 
