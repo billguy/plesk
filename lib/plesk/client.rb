@@ -35,6 +35,15 @@ module Plesk
       answer = start_request packet.to_xml
       answer.at('id').text
     end
+
+    def get_disk_usage_for domain
+      packet = Packet.new
+      packet.domain_info_for_domain domain
+      answer = start_request packet.to_xml
+      results = answer.at('disk_usage')
+      results.at('httpdocs').text
+    end
+
     def get_mailgroup_info_for mail
       name,domain = mail.split("@")
       domain_id = get_domain_id_for domain
