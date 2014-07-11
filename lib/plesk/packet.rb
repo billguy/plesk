@@ -32,6 +32,7 @@ module Plesk
         xml.dataset {
           xml.limits
           xml.prefs
+          xml.disk_usage
         }
         }
         }
