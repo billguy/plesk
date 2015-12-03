@@ -41,7 +41,7 @@ module Plesk
       packet.domain_info_for_domain domain
       answer = start_request packet.to_xml
       results = answer.at('disk_usage')
-      results.at('httpdocs').text
+      results.at('httpdocs').text if results.present?
     end
 
     def get_mailgroup_info_for mail
